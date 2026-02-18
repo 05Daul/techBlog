@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package userservice;
+
+option java_package = "daulspring.grpc.user";
+option java_outer_classname = "UserProto";
+option java_multiple_files = true;
+
+service UserGrpcService {
+  rpc CreateProfile (CreateProfileRequest) returns (CreateProfileResponse);
+  rpc ExistsByEmail (ExistsByEmailRequest) returns (ExistsByEmailResponse);
+  rpc ExistsByNickname (ExistsByNicknameRequest) returns (ExistsByNicknameResponse);
+}
+
+message CreateProfileRequest {
+  string email = 1;
+  string user_name = 2;
+  string nickname = 3;
+  string profile_img = 4;
+}
+
+message CreateProfileResponse {
+  int64 user_id = 1;
+}
+
+message ExistsByEmailRequest {
+  string email = 1;
+}
+
+message ExistsByEmailResponse {
+  bool exists = 1;
+}
+
+message ExistsByNicknameRequest {
+  string nickname = 1;
+}
+
+message ExistsByNicknameResponse {
+  bool exists = 1;
+}

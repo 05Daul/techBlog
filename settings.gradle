@@ -1,0 +1,13 @@
+rootProject.name = 'techBlog'
+
+include 'analyticsService'
+include 'authService'
+include 'blogService'
+include 'chatService'
+include 'crawlerService'
+include 'feedService'
+include 'gatewayService'
+include 'newsletterService'
+include 'searchService'
+include 'userService'
+include 'protomodule'
