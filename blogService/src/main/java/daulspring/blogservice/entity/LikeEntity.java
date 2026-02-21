@@ -1,54 +1,47 @@
-package daulspring.userservice.entity;
+package daulspring.blogservice.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import java.time.LocalDateTime;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "users_profiles")
+@Table(name = "likes", uniqueConstraints = {
+    // 중복 좋아요 -> 두 컬럼의 조합이 유일해야 함. 그래서 둘다 외래키로 가지고 있음.
+    @UniqueConstraint(columnNames = {"post_id", "user_id"})
+})
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class UsersEntity {
+@Builder
+public class LikeEntity {
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long userid;
+  private Long likeId;
 
-  @Column(nullable = false, unique = true,length = 50)
-  private String email;
+  @Column(name = "post_id", nullable = false)
+  private Long postId;
 
-  @Column(nullable = false, length = 20)
-  private String userName;
+  @Column(name = "userId", nullable = false)
+  private String userId;
 
-  @Column(nullable = false,unique = true, length = 10)
-  private String nickName;
-
-  @Enumerated(EnumType.STRING)
-  @Column(nullable = false)
-  private UserStatus status = UserStatus.ACTIVE;
-
-  @Column(nullable = false)
+  @Column(nullable = false, updatable = false)
   @CreationTimestamp
   private LocalDateTime createdAt;
 
   @Column(nullable = true)
   @UpdateTimestamp
   private LocalDateTime updatedAt;
-
-  @Column(nullable = true)
-  private String profileImg;
 
 }

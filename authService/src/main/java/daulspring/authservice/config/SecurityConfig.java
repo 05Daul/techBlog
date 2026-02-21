@@ -1,5 +1,5 @@
 package daulspring.authservice.config;
-
+import org.springframework.http.HttpMethod;
 import daulspring.authservice.jwt.JwtFilter;
 import daulspring.authservice.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
@@ -27,7 +27,8 @@ public class SecurityConfig {
         .sessionManagement(session ->
             session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/auth/signup", "/auth/login", "/auth/refresh").permitAll()
+            .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+            .requestMatchers("/auth/signup", "/auth/login", "/auth/refresh","/error").permitAll()
             .anyRequest().authenticated()
         )
         // JwtFilter를 UsernamePasswordAuthenticationFilter 앞에 등록

@@ -17,7 +17,7 @@ public class AuthLocalAccount {
   private Long id;
 
   @Column(nullable = false, unique = true)
-  private Long userId;
+  private Long userId; // user_profiles.id 참조
 
   @Column(nullable = false, unique = true, length = 16)
   private String signId;
