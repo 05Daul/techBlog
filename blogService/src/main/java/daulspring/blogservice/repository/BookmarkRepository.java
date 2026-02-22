@@ -9,7 +9,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BookmarkRepository extends JpaRepository<BookmarkEntity, Long> {
 
-  Page<BookmarkEntity> getUserBookmarks(Long userId, Pageable pageable)
+  Page<BookmarkEntity> getUserBookmarks(Long userId, Pageable pageable);
   // 북마크 존재 여부
   boolean existsByUserIdAndPostId(Long userId, Long postId);
 

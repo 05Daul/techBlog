@@ -13,35 +13,28 @@ import org.springframework.data.repository.query.Param;
 
 public interface PostRepository extends JpaRepository<PostEntity, Long> {
 
-  Optional<PostEntity> findById(Long id);
+  Optional<PostEntity> findByPostId(Long postId);
 
-
-  // 조회수 처리
   @Modifying
-  @Query("UPDATE PostEntity p SET p.viewCount = p.viewCount + 1 WHERE p.id = :postId")
+  @Query("UPDATE PostEntity p SET p.viewCount = p.viewCount + 1 WHERE p.postId = :postId")
   int incrementViewCount(@Param("postId") Long postId);
 
-  // 특정 사용자의 공개 글
   Page<PostEntity> findByUserIdAndIsPublishedTrue(Long userId, Pageable pageable);
 
-  // 최신순 조회
   Page<PostEntity> findAllByIsPublishedTrueOrderByCreatedAtDesc(Pageable pageable);
 
-  // 트렌딩 (7일 이내 + 조회수 높은 순)
   @Query("SELECT p FROM PostEntity p " +
       "WHERE p.isPublished = true " +
       "AND p.createdAt >= :sevenDaysAgo " +
       "ORDER BY p.viewCount DESC, p.createdAt DESC")
   Page<PostEntity> findTrendingPosts(@Param("sevenDaysAgo") LocalDateTime sevenDaysAgo, Pageable pageable);
 
-  // 피드 (팔로우한 사용자들의 글)
   @Query("SELECT p FROM PostEntity p " +
       "WHERE p.isPublished = true " +
       "AND p.userId IN :userIds " +
       "ORDER BY p.createdAt DESC")
   Page<PostEntity> findFeedPostsByUserIds(@Param("userIds") List<Long> userIds, Pageable pageable);
 
-  // 검색
   @Query("SELECT p FROM PostEntity p " +
       "WHERE p.isPublished = true " +
       "AND (LOWER(p.title) LIKE LOWER(CONCAT('%', :keyword, '%')) " +

@@ -16,7 +16,7 @@ public interface CommentRepository extends JpaRepository<CommentEntity, Long> {
   List<CommentEntity> findTopLevelCommentsByPostId(@Param("postId") Long postId);
 
   // 특정 댓글의 대댓글 조회
-  List<CommentEntity> findByParentComment_IdOrderByCreatedAtAsc(Long parentId);
+  List<CommentEntity> findByParentComment_CommentIdOrderByCreatedAtAsc(Long parentId);
 
   // 게시글의 댓글 개수
   Long countByPostIdAndIsDeletedFalse(Long postId);

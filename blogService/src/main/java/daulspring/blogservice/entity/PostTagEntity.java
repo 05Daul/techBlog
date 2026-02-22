@@ -18,7 +18,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Entity
 @Slf4j
-@Table(name = "post_tags")
+@Table(name = "blog_post_tags")
 @Getter
 @Setter
 @NoArgsConstructor

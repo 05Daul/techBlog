@@ -51,7 +51,7 @@ public class PostServiceImpl implements PostService {
 
     // 태그 추가
     if (dto.getTags() != null && !dto.getTags().isEmpty()) {
-      addTagsToPost(savedPost.getId(), dto.getTags());
+      addTagsToPost(savedPost.getPostId(), dto.getTags());
     }
 
     return convertToResponseDTO(savedPost);
@@ -216,12 +216,12 @@ public class PostServiceImpl implements PostService {
   }
 
   private PostResponseDTO convertToResponseDTO(PostEntity post) {
-    List<String> tags = getTagsByPostId(post.getId());
-    Long commentCount = commentRepository.countByPostIdAndIsDeletedFalse(post.getId());
-    Long likeCount = likeRepository.countByPostId(post.getId());
+    List<String> tags = getTagsByPostId(post.getPostId());
+    Long commentCount = commentRepository.countByPostIdAndIsDeletedFalse(post.getPostId());
+    Long likeCount = likeRepository.countByPostId(post.getPostId());
 
     return PostResponseDTO.builder()
-        .id(post.getId())
+        .id(post.getPostId())
         .userId(post.getUserId())
         .seriesId(post.getSeriesId())
         .title(post.getTitle())

@@ -17,8 +17,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 @Entity
-@Table(name = "likes", uniqueConstraints = {
-    // 중복 좋아요 -> 두 컬럼의 조합이 유일해야 함. 그래서 둘다 외래키로 가지고 있음.
+@Table(name = "blog_likes", uniqueConstraints = {
     @UniqueConstraint(columnNames = {"post_id", "user_id"})
 })
 @Getter
@@ -35,7 +34,7 @@ public class LikeEntity {
   @Column(name = "post_id", nullable = false)
   private Long postId;
 
-  @Column(name = "userId", nullable = false)
+  @Column(name = "user_id", nullable = false)
   private Long userId;
 
   @Column(nullable = false, updatable = false)

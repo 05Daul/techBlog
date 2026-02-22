@@ -15,7 +15,7 @@ public class BookmarkEntity {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long bookmarkId;
 
   @Column(name = "user_id", nullable = false)
   private Long userId; // user_profiles.userid 참조

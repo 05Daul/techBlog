@@ -49,7 +49,7 @@ public class SeriesServiceImpl implements SeriesService {
       throw new IllegalStateException("시리즈 삭제 권한이 없습니다.");
     }
 
-    // TODO: 삭제 시 해당 시리즈에 속한 Post들의 series_id를 null로 업데이트 하는 로직 필요
+    /// 삭제 시 해당 시리즈에 속한 Post들의 series_id를 null로 업데이트 하는 로직 필요
     seriesRepository.deleteById(seriesId);
   }
 
@@ -63,7 +63,7 @@ public class SeriesServiceImpl implements SeriesService {
 
   private SeriesResponseDTO convertToResponseDTO(SeriesEntity series) {
     return SeriesResponseDTO.builder()
-        .id(series.getId())
+        .id(series.getSeriesId())
         .userId(series.getUserId())
         .name(series.getName())
         .createdAt(series.getCreatedAt())

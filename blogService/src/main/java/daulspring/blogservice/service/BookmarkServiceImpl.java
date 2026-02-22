@@ -49,7 +49,7 @@ public class BookmarkServiceImpl implements BookmarkService {
   public Page<BookmarkResponseDTO> getUserBookmarks(Long userId, Pageable pageable) {
     return bookmarkRepository.findByUserIdOrderByCreatedAtDesc(userId, pageable)
         .map(bookmark -> BookmarkResponseDTO.builder()
-            .id(bookmark.getId())
+            .id(bookmark.getBookmarkId())
             .userId(bookmark.getUserId())
             .postId(bookmark.getPostId())
             // Post 데이터를 조인하여 제목, 썸네일 등을 DTO에 담아주는 로직이 추가되면 좋습니다.
