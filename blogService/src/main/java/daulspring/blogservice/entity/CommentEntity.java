@@ -37,10 +37,10 @@ public class CommentEntity {
   private Long postId;
 
   @Column(name = "user_id", nullable = false)
-  private String userId;
+  private Long userId;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "parent_id", nullable = true)
+  @JoinColumn(name = "parent_id", nullable = true) // DB 컬럼 이름
   private CommentEntity parentComment;
 
   @OneToMany(mappedBy = "parentComment", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = false)

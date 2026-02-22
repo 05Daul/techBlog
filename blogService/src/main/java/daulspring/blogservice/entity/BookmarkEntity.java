@@ -18,7 +18,7 @@ public class BookmarkEntity {
   private Long id;
 
   @Column(name = "user_id", nullable = false)
-  private Long userId;
+  private Long userId; // user_profiles.userid 참조
 
   @Column(name = "post_id", nullable = false)
   private Long postId;

@@ -12,6 +12,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -24,6 +25,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+@Setter
 public class LikeEntity {
 
   @Id
@@ -34,7 +36,7 @@ public class LikeEntity {
   private Long postId;
 
   @Column(name = "userId", nullable = false)
-  private String userId;
+  private Long userId;
 
   @Column(nullable = false, updatable = false)
   @CreationTimestamp
