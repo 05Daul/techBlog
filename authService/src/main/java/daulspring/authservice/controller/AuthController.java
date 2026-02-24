@@ -1,8 +1,8 @@
 package daulspring.authservice.controller;
 
 import daulspring.authservice.dto.*;
-import daulspring.authservice.jwt.JwtProvider;
 import daulspring.authservice.service.AuthService;
+import daulspring.commonsecurity.jwt.JwtProvider;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

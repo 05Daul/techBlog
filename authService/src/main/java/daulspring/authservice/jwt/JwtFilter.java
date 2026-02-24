@@ -1,5 +1,6 @@
 package daulspring.authservice.jwt;
 
+import daulspring.commonsecurity.jwt.JwtProvider;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

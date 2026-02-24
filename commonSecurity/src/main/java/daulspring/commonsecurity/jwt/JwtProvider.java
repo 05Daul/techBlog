@@ -1,4 +1,4 @@
-package daulspring.authservice.jwt;
+package daulspring.commonsecurity.jwt;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;

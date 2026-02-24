@@ -1,7 +1,7 @@
 package daulspring.authservice.config;
+import daulspring.commonsecurity.jwt.JwtProvider;
 import org.springframework.http.HttpMethod;
 import daulspring.authservice.jwt.JwtFilter;
-import daulspring.authservice.jwt.JwtProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
