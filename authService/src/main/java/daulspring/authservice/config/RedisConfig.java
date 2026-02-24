@@ -8,7 +8,6 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 
 @Configuration
 public class RedisConfig {
-  // RedisConnectionFactory 은 yml파일을 읽고, 호스트(host)와 포트(port) 정보를 현재 파라미터에 넣어줌.
 
 
   @Bean

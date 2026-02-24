@@ -25,7 +25,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 public class UsersEntity {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long userid;
+  private Long userId;
 
   @Column(nullable = false, unique = true,length = 50)
   private String email;
