@@ -57,7 +57,7 @@ public class UserServiceImpl implements UserService {
     profile.setStatus(UserStatus.ACTIVE);
 
     // 저장 후 Auth에서 사용할 userId를 반환
-    return userProfileRepository.save(profile).getUserid();
+    return userProfileRepository.save(profile).getUserId();
   }
 
   @Override
