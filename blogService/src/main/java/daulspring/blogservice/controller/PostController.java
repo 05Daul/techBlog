@@ -17,7 +17,7 @@ public class PostController {
 
   private final PostService postService;
 
-  // 게시글 작성 (인증 필요)
+  // 게시글 작성 (jwt 인증 필요)
   @PostMapping
   public ResponseEntity<PostResponseDTO> createPost(
       @RequestHeader("X-User-Id") Long userId,  // ← Gateway가 넣어준 userId
@@ -29,7 +29,7 @@ public class PostController {
     return ResponseEntity.ok(response);
   }
 
-  // 게시글 조회 (인증 불필요)
+  // 게시글 조회 (jwt 인증 불필요)
   @GetMapping("/{postId}")
   public ResponseEntity<PostResponseDTO> getPost(@PathVariable Long postId) {
 
