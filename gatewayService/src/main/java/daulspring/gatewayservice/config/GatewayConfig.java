@@ -37,7 +37,7 @@ public class GatewayConfig {
         
         // Blog Service (필터 적용)
         .route("blog-service", r -> r
-            .path("/api/**")
+            .path("/blog/**")
             .filters(f -> f.filter(jwyAuthFilter))
             .uri("http://localhost:1003"))
         

@@ -4,7 +4,6 @@ import daulspring.blogservice.dto.PostCreateRequestDTO;
 import daulspring.blogservice.dto.PostResponseDTO;
 import daulspring.blogservice.entity.PostEntity;
 import daulspring.blogservice.repository.PostRepository;
-import daulspring.blogservice.repository.PostTagRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

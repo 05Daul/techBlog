@@ -73,8 +73,8 @@ public class JwyAuthFilter implements GatewayFilter {
       return true;
     }
 
-    // 게시글 조회만 허용 (GET /api/posts/*)
-    if (path.startsWith("/api/posts/") && HttpMethod.GET.equals(method)) {
+    // 게시글 조회만 허용 (GET /blog/posts/*)
+    if (path.startsWith("/blog/posts/") && HttpMethod.GET.equals(method)) {
       return true;
     }
 
